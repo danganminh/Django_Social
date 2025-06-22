@@ -1,0 +1,11 @@
+Book: Django By Example page 137/474
+
+admin:
+username: dang
+email: dang@django.com
+password: Minhdang123
+
+user2:
+username: dang2
+email: dang2@django.com
+password: Minhdang123

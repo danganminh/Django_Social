@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Edit your account{% endblock %}
+
+{% block content %}
+    <h1>Edit your account</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <ul class="message.tags">
+                <p {% if message.tags %} class="{{ message.tags }}"{% endif %}><strong>{{ message }}</strong></p>
+            </ul>
+        {% endfor %}
+    {% endif %}
+    
+    <p>You can edit your account using the following form:</p>
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <p><button type="submit">Save changes</p>
+    </form>
+{% endblock %}
