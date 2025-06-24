@@ -1,4 +1,4 @@
-Book: Django By Example page 137/474
+Book: Django By Example page 158/474
 
 admin:
 username: dang
