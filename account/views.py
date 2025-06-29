@@ -10,6 +10,15 @@ from .forms import (
 )
 
 from .models import Profile
+from images.models import Image  # make sure this import exists
+
+
+@login_required
+def dashboard(request):
+    images = request.user.images_created.all()  # from related_name
+    return render(
+        request, "account/dashboard.html", {"section": "dashboard", "images": images}
+    )
 
 
 def register(request):
@@ -30,11 +39,6 @@ def register(request):
         user_form = UserRegistrationForm()
 
     return render(request, "account/register.html", {"user_form": user_form})
-
-
-@login_required
-def dashboard(request):
-    return render(request, "account/dashboard.html", {"section": "dashboard"})
 
 
 @login_required
